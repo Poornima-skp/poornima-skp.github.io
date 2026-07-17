@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Poornima Somanathan — My Portfolio</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --navy: #12233d;
+    --navy-deep: #0b1626;
+    --paper: #f3efe6;
+    --ink: #e9e4d8;
+    --ink-dim: #a9b3c4;
+    --gold: #d3a24c;
+    --teal: #5fada3;
+    --rule: rgba(233,228,216,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--navy-deep);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;}
+
+  /* HERO */
+  header.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--rule);
+    background:
+      radial-gradient(circle at 85% -10%, rgba(211,162,76,0.10), transparent 45%),
+      var(--navy);
+  }
+  .eyebrow{
+    font-size:12.5px;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  h1.name{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(34px,5vw,54px);
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .thesis{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(19px,2.4vw,24px);
+    color:var(--ink-dim);
+    max-width:600px;
+    margin:0 0 28px;
+  }
+  .hero-meta{
+    display:flex;gap:22px;flex-wrap:wrap;
+    font-size:13.5px;color:var(--ink-dim);
+  }
+  .hero-meta a{color:var(--teal);text-decoration:none;}
+
+  section{padding:64px 0;border-bottom:1px solid var(--rule);}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.08em;
+    color:var(--gold);text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  h2{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(24px,3vw,32px);
+    margin:0 0 8px;color:var(--ink);
+  }
+  .section-intro{color:var(--ink-dim);max-width:620px;font-size:15.5px;margin-bottom:40px;}
+
+  /* WORKFLOW PIPELINE */
+  .pipeline{
+    display:flex;flex-direction:column;gap:0;
+    border-left:2px solid rgba(211,162,76,0.35);
+    margin-left:14px;
+  }
+  .step{
+    position:relative;
+    padding:0 0 34px 32px;
+  }
+  .step:last-child{padding-bottom:0;}
+  .step::before{
+    content:"";
+    position:absolute;left:-7px;top:2px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--navy-deep);
+    border:2px solid var(--gold);
+  }
+  .step.caught::before{border-color:var(--teal);}
+  .step-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--gold);
+    text-transform:uppercase;letter-spacing:0.06em;
+    margin-bottom:4px;
+  }
+  .step.caught .step-label{color:var(--teal);}
+  .step-title{font-weight:600;font-size:16.5px;color:var(--ink);margin-bottom:5px;}
+  .step-desc{font-size:14.5px;color:var(--ink-dim);max-width:560px;}
+  .step-quote{
+    margin-top:8px;font-family:'Fraunces',serif;font-style:italic;
+    color:var(--ink);font-size:14.5px;
+    border-left:2px solid var(--rule);padding-left:12px;
+  }
+
+  .domain-note{
+    margin-top:36px;padding:16px 18px;
+    background:rgba(211,162,76,0.07);
+    border:1px solid rgba(211,162,76,0.25);
+    border-radius:4px;
+    font-size:13.5px;color:var(--ink-dim);
+  }
+  .domain-note b{color:var(--gold);font-weight:600;}
+
+  /* PROMPT REFINEMENT */
+  .refine-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  @media (max-width:640px){.refine-grid{grid-template-columns:1fr;}}
+  .refine-card{
+    background:var(--navy);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:20px 22px;
+  }
+  .refine-card.after{border-color:rgba(95,173,163,0.4);}
+  .refine-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    text-transform:uppercase;letter-spacing:0.07em;
+    color:var(--ink-dim);margin-bottom:10px;
+  }
+  .refine-card.after .refine-tag{color:var(--teal);}
+  .refine-text{font-size:14.5px;color:var(--ink);}
+  .refine-note{font-size:13px;color:var(--ink-dim);margin-top:10px;font-style:italic;}
+  .refine-pair{margin-bottom:22px;}
+  .refine-pair:last-child{margin-bottom:0;}
+  .refine-pair-title{font-size:13.5px;color:var(--gold);font-family:'IBM Plex Mono',monospace;margin-bottom:10px;}
+
+  /* REFLECTION */
+  .reflection-box{
+    background:var(--navy);
+    border:1px dashed rgba(233,228,216,0.28);
+    border-radius:6px;
+    padding:26px 28px;
+    font-size:15px;color:var(--ink-dim);
+  }
+  .reflection-box .placeholder-label{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+    color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;
+    margin-bottom:10px;
+  }
+
+  footer{padding:48px 0 80px;text-align:center;color:var(--ink-dim);font-size:13px;}
+  footer a{color:var(--teal);text-decoration:none;}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+<div class="eyebrow mono">My Portfolio — Companion to Claude Corps Fellowship Application</div>
+<h1 class="name">Poornima Somanathan</h1>
+<p class="thesis">Examples of how I use AI to define constraints, refine prompts, evaluate outputs, and improve workflows.</p>
+<div class="hero-meta mono">
+<span>Plano, TX</span>
+<a href="mailto:poornima.somanathan@gmail.com">poornima.somanathan@gmail.com</a>
+<a href="https://www.linkedin.com/in/poornima-somanathan/" target="_blank">LinkedIn</a>
+</div>
+</div>
+</header>
+<section id="case-study">
+<div class="wrap">
+<div class="kicker">Case Study</div>
+<h2>From one question to a running system</h2>
+<p class="section-intro">Over several months, an ad hoc question to an AI assistant turned into a daily, automated decision-support tool — through the same loop I use for any AI-assisted work: ask, evaluate critically, catch what's wrong, refine, and only then scale it up.</p>
+<div class="pipeline">
+<div class="step">
+<div class="step-label">01 — Start narrow</div>
+<div class="step-title">Asked a single, constrained question</div>
+<div class="step-desc">Instead of a generic prompt, I set an explicit constraint up front, which shaped every answer that followed.</div>
+<div class="step-quote">"I do not want to own this stock. I am just trying to make money by writing puts and letting it expire."</div>
+</div>
+<div class="step caught">
+<div class="step-label">02 — Catch the conflict</div>
+<div class="step-title">Evaluated the answer against my own constraint</div>
+<div class="step-desc">The AI surfaced a high-premium trade — but high premium was a signal to interrogate, not a reason to act. I read past the headline number to the actual risk, and rejected the trade because it broke my own stated rule.</div>
+</div>
+<div class="step">
+<div class="step-label">03 — Generalize</div>
+<div class="step-title">Turned one answer into a reusable framework</div>
+<div class="step-desc">Instead of asking one-off questions stock by stock, I specified explicit, repeatable screening criteria — delta range, volatility threshold, price band — so any candidate could be evaluated the same way.</div>
+</div>
+<div class="step caught">
+<div class="step-label">04 — Correct my own spec</div>
+<div class="step-title">Caught and fixed my own mistake</div>
+<div class="step-desc">I reviewed the output against what I actually wanted and corrected a contradiction I'd introduced myself.</div>
+<div class="step-quote">"My bad. I do NOT want to trade in stocks that are more than $80."</div>
+</div>
+<div class="step">
+<div class="step-label">05 — Automate</div>
+<div class="step-title">Converted the framework into a recurring system</div>
+<div class="step-desc">Once the criteria were reliable, I moved from asking on demand to a standing daily report — generated automatically, before markets open, against a consistent rubric I designed.</div>
+</div>
+<div class="step caught">
+<div class="step-label">06 — Iterate on the system itself</div>
+<div class="step-title">Identified a gap and closed it</div>
+<div class="step-desc">I noticed Monday reports were missing weekend context that mattered for decision-making, and specified a fix — a structural improvement to the tool, not just a one-off answer.</div>
+</div>
+</div>
+<div class="domain-note">
+<b>Why this matters beyond investing:</b> the domain here is personal market research, but the pattern is the transferable part — set explicit constraints, evaluate output rather than trusting it, generalize a good answer into a reusable tool, catch your own errors, then automate and keep refining. That's the same loop I'd bring to building a tool, agent, or evaluation harness for a host organization.
+    </div>
+</div>
+</section>
+<section id="prompt-refinement">
+<div class="wrap">
+<div class="kicker">Prompt Refinement</div>
+<h2>Editing until it's actually right</h2>
+<p class="section-intro">A separate project — designing a family invitation with AI-generated imagery — shows the same instinct at a smaller, more precise scale: I don't accept a "close enough" output, I specify exactly what's wrong and exactly what should change.</p>
+<div class="refine-pair">
+<div class="refine-pair-title">EXAMPLE 1 — Tone</div>
+<div class="refine-grid">
+<div class="refine-card before">
+<div class="refine-tag mono">First draft wording</div>
+<div class="refine-text">"Please join us for [Name]'s Half Saree Ceremony"</div>
+</div>
+<div class="refine-card after">
+<div class="refine-tag mono">Refinement given</div>
+<div class="refine-text">"Instead of 'please join us for' write 'cordially invite for'"</div>
+<div class="refine-note">Specified the exact phrase and the exact replacement — not "make it more formal."</div>
+</div>
+</div>
+</div>
+<div class="refine-pair">
+<div class="refine-pair-title">EXAMPLE 2 — Voice &amp; ownership</div>
+<div class="refine-grid">
+<div class="refine-card before">
+<div class="refine-tag mono">First draft wording</div>
+<div class="refine-text">"...their granddaughter and daughter"</div>
+</div>
+<div class="refine-card after">
+<div class="refine-tag mono">Refinement given</div>
+<div class="refine-text">"Instead of 'their granddaughter and daughter' write 'our granddaughter and daughter'"</div>
+<div class="refine-note">Caught a subtle point-of-view error the model missed — the family should speak in first person on their own invitation.</div>
+</div>
+</div>
+</div>
+<div class="refine-pair">
+<div class="refine-pair-title">EXAMPLE 3 — Quantified feedback</div>
+<div class="refine-grid">
+<div class="refine-card before">
+<div class="refine-tag mono">First draft result</div>
+<div class="refine-text">Sparkle animation applied at full intensity — visually loud, competing with the invitation text.</div>
+</div>
+<div class="refine-card after">
+<div class="refine-tag mono">Refinement given</div>
+<div class="refine-text">"I like the flower petals but the sparkle is a bit too much" → specified "about 70% less than current," kept the petals, cut the sparkle.</div>
+<div class="refine-note">Didn't just say "less" — diagnosed <em>why</em> it wasn't working (drawing focus from the invitation) and quantified the fix.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="reflection">
+<div class="wrap">
+<div class="kicker">Reflection</div>
+<h2>What AI Fluency &amp; Claude 101 changed about how I work</h2>
+<div class="reflection-box"><p>Before AI Fluency and Claude 101, I prompted the way most people start out—short requests, minimal context, and hoping the first answer would be close enough. The courses changed that. I learned that vague prompts often produce vague responses, so I now spend more time defining the task, providing context, and specifying the constraints before asking AI to solve a problem.</p><p>One of the most practical techniques I learned was asking AI to review my prompt before completing the task. Having it point out missing context or unclear instructions has consistently helped me improve my prompts before moving on to the actual work.</p><p>The clearest example of this shift is the project behind this portfolio. I created a Claude Project, uploaded my resume, the Claude Corps Fellowship requirements, and supporting documents, then worked through multiple rounds of review and refinement to develop my resume, application responses, and this portfolio. Rather than treating AI as a one-time question-and-answer tool, I used the project as an evolving workspace where each iteration built on the previous one.</p><p>Building this portfolio wasn't just the outcome of what I learned—it was the process through which I applied it.</p></div>
+</div>
+</section>
+<footer>
+<div class="wrap">
+    Companion to resume — full experience and background available on request.<br/>
+<a href="mailto:poornima.somanathan@gmail.com">poornima.somanathan@gmail.com</a>
+</div>
+</footer>
+</body>
+</html>
